@@ -2,8 +2,15 @@
 "  Looks.
 " -----------------------------------------------------------------------------
 
-" Use this font and size.
-set guifont=Anonymous\ Pro:h20
+if has("gui_running")
+
+  " Use this font and size.
+  set guifont=Anonymous\ Pro:h20
+
+  " Use this color scheme.
+  colorscheme solarized
+
+endif
 
 " Show line numbers.
 set nu
