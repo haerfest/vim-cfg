@@ -5,18 +5,29 @@
 if has("gui_running")
 
   " Use this font and size.
-  set guifont=Mensch:h14
+  set guifont=GohuFont:h14
 
   " Use this color scheme.
-  colorscheme solarized
+  colorscheme zenburn
 
+  " Disable distracting user interface elements.
+  set guioptions-=m  " menu bar
+  set guioptions-=T  " tool bar
+  set guioptions-=r  " right scroll bar
+  set guioptions-=R  " also not for split windows
+  set guioptions-=l  " left scroll bar
+  set guioptions-=L  " also not for split windows
+  set guioptions-=b  " bottom scroll bar
 endif
 
-" Show line numbers.
+" Show line numbers in the left column.
 set nu
 
-" Show cursor position.
+" Show cursor position in the status bar.
 set ruler
+
+" Highlight the current line.
+set cursorline
 
 " Enable syntax highlighting.
 syntax on
@@ -32,15 +43,23 @@ set tabstop=2
 " Indent with two spaces.
 set shiftwidth=2
 
+" Enable filetype-specific indentation.
+if has("autocmd")
+  filetype plugin indent on
+endif
+
+" Always continue the indentation of the previous line.
+set autoindent
+
 " Don't wrap lines.
 set wrap!
 
-" Use Alt + arrow keys to navigate splits:
+" Use Command + arrow keys to navigate splits:
 " http://vim.wikia.com/wiki/Switch_between_Vim_window_splits_easily
-nnoremap <silent> <A-Up>    :wincmd k<CR>
-nnoremap <silent> <A-Down>  :wincmd j<CR>
-nnoremap <silent> <A-Left>  :wincmd h<CR>
-nnoremap <silent> <A-Right> :wincmd l<CR>
+nnoremap <silent> <D-Up>    :wincmd k<CR>
+nnoremap <silent> <D-Down>  :wincmd j<CR>
+nnoremap <silent> <D-Left>  :wincmd h<CR>
+nnoremap <silent> <D-Right> :wincmd l<CR>
 
 " -----------------------------------------------------------------------------
 "  Tagbar.  See http://majutsushi.github.io/tagbar/.
