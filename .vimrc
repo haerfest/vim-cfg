@@ -5,10 +5,10 @@
 if has("gui_running")
 
   " Use this font and size.
-  if has("gui_gtk")
+  if has("gui_mac")
+    set guifont=GohuFont:h14
+  elseif has("gui_gtk")
     set guifont=GohuFont\ 14
-  else
-    set guifont=GohuPro:h14
   endif
 
   " Use this color scheme.
@@ -40,8 +40,10 @@ syntax on
 "  Behaviour.
 " -----------------------------------------------------------------------------
 
-" Use the X11 clipboard on Linux.
-if has("gui_gtk")
+" Copy and paste via the system clipboard.
+if has("mac")
+  set clipboard=unnamed
+elseif has("gui_gtk")
   set clipboard=unnamedplus
 endif
 
