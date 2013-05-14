@@ -5,7 +5,11 @@
 if has("gui_running")
 
   " Use this font and size.
-  set guifont=GohuFont:h14
+  if has("gui_gtk")
+    set guifont=GohuFont\ 14
+  else
+    set guifont=GohuPro:h14
+  endif
 
   " Use this color scheme.
   colorscheme zenburn
@@ -36,6 +40,11 @@ syntax on
 "  Behaviour.
 " -----------------------------------------------------------------------------
 
+" Use the X11 clipboard on Linux.
+if has("gui_gtk")
+  set clipboard=unnamedplus
+endif
+
 " Insert two spaces for each tab.
 set expandtab
 set tabstop=2
@@ -52,7 +61,7 @@ endif
 set autoindent
 
 " Don't wrap lines.
-set wrap!
+set nowrap
 
 " Use Command + arrow keys to navigate splits:
 " http://vim.wikia.com/wiki/Switch_between_Vim_window_splits_easily
