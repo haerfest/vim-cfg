@@ -5,7 +5,7 @@
 if has("gui_running")
 
   " Use this font and size.
-  if has("gui_mac")
+  if has("mac")
     set guifont=GohuFont:h14
   elseif has("gui_gtk")
     set guifont=GohuFont\ 14
@@ -88,7 +88,8 @@ endif
 " -r                  Search recusrively
 " -I                  Skip binary files
 " --exclude-dir=.svn  Skip all .svn directories
-set grepprg=grep\ -n\ -r\ -I\ --exclude-dir=.svn\ $*\ /dev/null"
+" --exclude=TAGS      Skip all TAGS files
+set grepprg=grep\ -n\ -r\ -I\ --exclude-dir=.svn\ --exclude=TAGS\ $*\ /dev/null"
 
 " Use F3 and F4 to jump to the previous/next grep hit.
 noremap <silent> <F3>   :cprev<CR>
