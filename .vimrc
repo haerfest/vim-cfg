@@ -36,6 +36,7 @@ set cursorline
 " Enable syntax highlighting.
 syntax on
 
+
 " -----------------------------------------------------------------------------
 "  Behaviour.
 " -----------------------------------------------------------------------------
@@ -65,19 +66,51 @@ set autoindent
 " Don't wrap lines.
 set nowrap
 
-" Use Command + arrow keys to navigate splits:
-" http://vim.wikia.com/wiki/Switch_between_Vim_window_splits_easily
-nnoremap <silent> <D-Up>    :wincmd k<CR>
-nnoremap <silent> <D-Down>  :wincmd j<CR>
-nnoremap <silent> <D-Left>  :wincmd h<CR>
-nnoremap <silent> <D-Right> :wincmd l<CR>
+" Set the working directory automatically to the file being edited.
+set autochdir
+
+if has("mac")
+  " Use Command + arrow keys to navigate splits:
+  noremap <silent> <D-Up>    :wincmd k<CR>
+  noremap <silent> <D-Down>  :wincmd j<CR>
+  noremap <silent> <D-Left>  :wincmd h<CR>
+  noremap <silent> <D-Right> :wincmd l<CR>
+elseif has("unix")
+  " Use Alt + arrow keys on Linux.
+  noremap <silent> <M-Up>    :wincmd k<CR>
+  noremap <silent> <M-Down>  :wincmd j<CR>
+  noremap <silent> <M-Left>  :wincmd h<CR>
+  noremap <silent> <M-Right> :wincmd l<CR>
+endif
+
+" When grepping:
+" -n                  Output line numbers
+" -r                  Search recusrively
+" -I                  Skip binary files
+" --exclude-dir=.svn  Skip all .svn directories
+set grepprg=grep\ -n\ -r\ -I\ --exclude-dir=.svn\ $*\ /dev/null"
+
+" Use F3 and F4 to jump to the previous/next grep hit.
+noremap <silent> <F3>   :cprev<CR>
+noremap <silent> <F4>   :cnext<CR>
+noremap <silent> <S-F3> :cpfile<CR>
+noremap <silent> <S-F4> :cnfile<CR>
+noremap <silent> <C-F3> :colder<CR>
+noremap <silent> <C-F4> :cnewer<CR>
+
+" Folding behaviour.
+set foldmethod=indent  " fold based on indentation
+set foldnestmax=10     " deepest fold is 10 levels
+set nofoldenable       " don't fold by defeault
+
 
 " -----------------------------------------------------------------------------
 "  Tagbar.  See http://majutsushi.github.io/tagbar/.
 " -----------------------------------------------------------------------------
-nmap <F8> :TagbarToggle<CR>
+nmap <silent> <F8> :TagbarToggle<CR>
+
 
 " -----------------------------------------------------------------------------
 "  NerdTree.  See https://github.com/scrooloose/nerdtree.
 " -----------------------------------------------------------------------------
-nmap <F2> :NERDTreeToggle<CR>
+nmap <silent> <F2> :NERDTreeToggle<CR>
