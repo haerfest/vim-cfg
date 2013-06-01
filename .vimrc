@@ -22,6 +22,10 @@ if has("gui_running")
   set guioptions-=l  " left scroll bar
   set guioptions-=L  " also not for split windows
   set guioptions-=b  " bottom scroll bar
+
+  " Highlight the current line.
+  set cursorline
+
 endif
 
 " Show line numbers in the left column.
@@ -29,9 +33,6 @@ set nu
 
 " Show cursor position in the status bar.
 set ruler
-
-" Highlight the current line.
-set cursorline
 
 " Enable syntax highlighting.
 syntax on
