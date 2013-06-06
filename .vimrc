@@ -8,7 +8,7 @@ if has("gui_running")
   if has("mac")
     set guifont=GohuFont:h14
   elseif has("gui_gtk")
-    set guifont=GohuFont\ 14
+    set guifont=Mensch\ 10
   endif
 
   " Use this color scheme.
@@ -22,6 +22,7 @@ if has("gui_running")
   set guioptions-=l  " left scroll bar
   set guioptions-=L  " also not for split windows
   set guioptions-=b  " bottom scroll bar
+  set guioptions-=e  " native tabs
 
   " Highlight the current line.
   set cursorline
