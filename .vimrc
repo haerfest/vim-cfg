@@ -6,7 +6,7 @@ if has("gui_running")
 
   " Use this font and size.
   if has("mac")
-    set guifont=GohuFont:h14
+    set guifont=Monaco:h13
   elseif has("gui_gtk")
     set guifont=Mensch\ 10
   endif
@@ -104,7 +104,7 @@ noremap <silent> <C-F4> :cnewer<CR>
 " Folding behaviour.
 set foldmethod=indent  " fold based on indentation
 set foldnestmax=10     " deepest fold is 10 levels
-set nofoldenable       " don't fold by defeault
+set nofoldenable       " don't fold by default
 
 
 " -----------------------------------------------------------------------------
