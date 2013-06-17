@@ -106,6 +106,8 @@ set foldmethod=indent  " fold based on indentation
 set foldnestmax=10     " deepest fold is 10 levels
 set nofoldenable       " don't fold by defeault
 
+" Keep searching for a TAGS file up the directory hierarchy.
+set tags=tags;/
 
 " -----------------------------------------------------------------------------
 "  Tagbar.  See http://majutsushi.github.io/tagbar/.
