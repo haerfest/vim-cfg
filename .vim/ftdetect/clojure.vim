@@ -1,1 +1,3 @@
-au BufNewFile,BufRead *.clj,*.cljs,*.edn		setf clojure
+au BufNewFile,BufRead *.clj setf clojure
+au BufNewFile,BufRead *.cljs setf clojure
+
