@@ -6,26 +6,23 @@ if has("gui_running")
 
   " Use this font and size.
   if has("mac")
-    set guifont=Monaco:h13
+    set guifont=Source\ Code\ Pro\ Light:h16
   elseif has("gui_gtk")
-    set guifont=Mensch\ 10
+    set guifont=Source\ Code\ Pro\ Light\ 16
   endif
 
   " Use this color scheme.
-  colorscheme zenburn
+  colorscheme elflord
 
   " Disable distracting user interface elements.
-  set guioptions-=m  " menu bar
-  set guioptions-=T  " tool bar
-  set guioptions-=r  " right scroll bar
-  set guioptions-=R  " also not for split windows
-  set guioptions-=l  " left scroll bar
-  set guioptions-=L  " also not for split windows
-  set guioptions-=b  " bottom scroll bar
-  set guioptions-=e  " native tabs
-
-  " Highlight the current line.
-  set cursorline
+  " set guioptions-=m  " menu bar
+  set guioptions-=T    " tool bar
+  set guioptions-=r    " right scroll bar
+  set guioptions-=R    " also not for split windows
+  set guioptions-=l    " left scroll bar
+  set guioptions-=L    " also not for split windows
+  set guioptions-=b    " bottom scroll bar
+  " set guioptions-=e  " native tabs
 
 endif
 
