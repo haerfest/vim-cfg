@@ -12,7 +12,7 @@ if has("gui_running")
   endif
 
   " Use this color scheme.
-  colorscheme elflord
+  colorscheme zenburn
 
   " Disable distracting user interface elements.
   " set guioptions-=m  " menu bar
@@ -105,6 +105,15 @@ set nofoldenable       " don't fold by default
 
 " Keep searching for a TAGS file up the directory hierarchy.
 set tags=tags;/
+
+
+" -----------------------------------------------------------------------------
+"  Slimv.  See https://github.com/vim-scripts/slimv.vim.
+" -----------------------------------------------------------------------------
+let g:paredit_mode=1
+let g:lisp_rainbow=1
+let g:slimv_preferred='clisp'
+
 
 " -----------------------------------------------------------------------------
 "  Tagbar.  See http://majutsushi.github.io/tagbar/.
