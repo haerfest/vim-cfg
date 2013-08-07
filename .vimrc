@@ -140,5 +140,5 @@ set tags=tags;/
 " -----------------------------------------------------------------------------
 let g:paredit_mode=1
 let g:lisp_rainbow=1
-let g:slimv_preferred='clisp'
+let g:slimv_preferred='sbcl'
 
