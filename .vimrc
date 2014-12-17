@@ -4,14 +4,25 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('win32')
+  set rtp+=~/Documents/Shared/vim-cfg/.vim/bundle/Vundle.vim
+else
+  set rtp+=~/.vim/bundle/Vundle.vim
+endif
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " Other bundles go here.
-Bundle 'slimv.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 
+" Color themes.
+Plugin 'gosukiwi/vim-atom-dark'
+Plugin 'jonathanfilip/vim-lucius'
+
+" All of your Plugins must be added before the following line.
+call vundle#end()
 filetype plugin indent on
 
 " -----------------------------------------------------------------------------
@@ -21,32 +32,34 @@ filetype plugin indent on
 if has("gui_running")
 
   " Use this font and size.
-  " if has("mac")
-  "   set guifont=Source\ Code\ Pro\ Light:h16
-  " elseif has("gui_gtk")
-  "   set guifont=Source\ Code\ Pro\ Light\ 16
-  " endif
+  if has("mac")
+    set guifont=Source\ Code\ Pro\ Light:h16
+  elseif has("gui_gtk")
+    set guifont=Source\ Code\ Pro\ Light\ 16
+  elseif has("win32")
+    set guifont=DejaVu_Sans_Mono:h11:cANSI
+  endif
 
   " Use this color scheme.
-  " colorscheme zenburn
+  colorscheme lucius
 
   " Disable distracting user interface elements.
-  " set guioptions-=m  " menu bar
-  " set guioptions-=T    " tool bar
-  " set guioptions-=r    " right scroll bar
-  " set guioptions-=R    " also not for split windows
-  " set guioptions-=l    " left scroll bar
-  " set guioptions-=L    " also not for split windows
-  " set guioptions-=b    " bottom scroll bar
-  " set guioptions-=e  " native tabs
+  "set guioptions-=m  " menu bar
+  set guioptions-=T    " tool bar
+  set guioptions-=r    " right scroll bar
+  set guioptions-=R    " also not for split windows
+  set guioptions-=l    " left scroll bar
+  set guioptions-=L    " also not for split windows
+  set guioptions-=b    " bottom scroll bar
+  "set guioptions-=e  " native tabs
 
 endif
 
 " Show line numbers in the left column.
-" set nu
+set nu
 
-" Show cursor position in the status bar.
-" set ruler
+" Highlight current line.
+set cursorline
 
 " Enable syntax highlighting.
 syntax on
@@ -81,11 +94,11 @@ elseif has("gui_gtk")
   set clipboard=unnamedplus
 endif
 
-" Insert two spaces for each tab.
+" Insert this many spaces for each tab.
 set expandtab
 set tabstop=2
 
-" Indent with two spaces.
+" Indent with this many spaces.
 set shiftwidth=2
 
 " Always continue the indentation of the previous line.
@@ -103,7 +116,7 @@ if has("mac")
   noremap <silent> <D-Down>  :wincmd j<CR>
   noremap <silent> <D-Left>  :wincmd h<CR>
   noremap <silent> <D-Right> :wincmd l<CR>
-elseif has("unix")
+elseif has("unix") || has('win32')
   " Use Alt + arrow keys on Linux.
   noremap <silent> <M-Up>    :wincmd k<CR>
   noremap <silent> <M-Down>  :wincmd j<CR>
@@ -135,10 +148,17 @@ set nofoldenable       " don't fold by default
 " Keep searching for a TAGS file up the directory hierarchy.
 set tags=tags;/
 
-" -----------------------------------------------------------------------------
-"  Slimv.
-" -----------------------------------------------------------------------------
-let g:paredit_mode=1
-let g:lisp_rainbow=1
-let g:slimv_preferred='sbcl'
+if has('win32')
+  set keymodel-=stopsel  " arrow keys don't end visual mode
+endif
 
+" Don't want backup or swapfiles.
+set nobackup
+set nowritebackup
+set noswapfile
+
+" Tabs show only the filename, not the path.
+set guitablabel=%t
+
+" Don't start NERDTreeTabs right away.
+let g:nerdtree_tabs_open_on_gui_startup=0
