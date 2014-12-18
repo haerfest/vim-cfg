@@ -16,6 +16,8 @@ Plugin 'gmarik/vundle'
 " Other bundles go here.
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
 
 " Color themes.
 Plugin 'gosukiwi/vim-atom-dark'
@@ -37,11 +39,11 @@ if has("gui_running")
   elseif has("gui_gtk")
     set guifont=Source\ Code\ Pro\ Light\ 16
   elseif has("win32")
-    set guifont=DejaVu_Sans_Mono:h11:cANSI
+    set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI
   endif
 
   " Use this color scheme.
-  colorscheme lucius
+  colorscheme atom-dark
 
   " Disable distracting user interface elements.
   "set guioptions-=m  " menu bar
@@ -65,25 +67,6 @@ set cursorline
 syntax on
 
 " -----------------------------------------------------------------------------
-"  Status line.
-"  http://got-ravings.blogspot.nl/2008/08/vim-pr0n-making-statuslines-that-own.html
-" -----------------------------------------------------------------------------
-
-set laststatus=2
-
-set statusline=%t       "tail of the filename
-set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
-set statusline+=%{&ff}] "file format
-set statusline+=%h      "help file flag
-set statusline+=%m      "modified flag
-set statusline+=%r      "read only flag
-set statusline+=%y      "filetype
-set statusline+=%=      "left/right separator
-set statusline+=%c,     "cursor column
-set statusline+=%l/%L   "cursor line/total lines
-set statusline+=\ %P    "percent through file
-
-" -----------------------------------------------------------------------------
 "  Behaviour.
 " -----------------------------------------------------------------------------
 
@@ -99,7 +82,7 @@ set expandtab
 set tabstop=2
 
 " Indent with this many spaces.
-set shiftwidth=2
+set shiftwidth=2 
 
 " Always continue the indentation of the previous line.
 set autoindent
@@ -162,3 +145,15 @@ set guitablabel=%t
 
 " Don't start NERDTreeTabs right away.
 let g:nerdtree_tabs_open_on_gui_startup=0
+
+" Always show a statusline.
+set laststatus=2
+
+" Use nice Powerline fonts for Airline.
+set encoding=utf-8
+let g:airline_powerline_fonts=1
+
+" CtrlP should follow NERDTree's working directory.
+let g:NERDTreeChDirMode=2
+let g:ctrlp_working_path_mode='rw'
+
