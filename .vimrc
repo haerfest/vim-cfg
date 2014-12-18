@@ -22,6 +22,8 @@ Plugin 'bling/vim-airline'
 " Color themes.
 Plugin 'gosukiwi/vim-atom-dark'
 Plugin 'jonathanfilip/vim-lucius'
+Plugin 'Pychimp/vim-luna'
+Plugin 'tomasr/molokai'
 
 " All of your Plugins must be added before the following line.
 call vundle#end()
@@ -39,21 +41,21 @@ if has("gui_running")
   elseif has("gui_gtk")
     set guifont=Source\ Code\ Pro\ Light\ 16
   elseif has("win32")
-    set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI
+    set guifont=DejaVu_Sans_Mono_for_Powerline:h10:cANSI
   endif
 
   " Use this color scheme.
-  colorscheme atom-dark
+  colorscheme molokai
 
   " Disable distracting user interface elements.
-  "set guioptions-=m  " menu bar
-  set guioptions-=T    " tool bar
-  set guioptions-=r    " right scroll bar
+  set guioptions-=m    " no menu bar
+  set guioptions-=T    " no tool bar
+  set guioptions-=r    " no right scroll bar
   set guioptions-=R    " also not for split windows
-  set guioptions-=l    " left scroll bar
+  set guioptions-=l    " no left scroll bar
   set guioptions-=L    " also not for split windows
-  set guioptions-=b    " bottom scroll bar
-  "set guioptions-=e  " native tabs
+  set guioptions-=b    " no bottom scroll bar
+  set guioptions-=e    " textual tabs
 
 endif
 
@@ -146,12 +148,19 @@ set guitablabel=%t
 " Don't start NERDTreeTabs right away.
 let g:nerdtree_tabs_open_on_gui_startup=0
 
+" Use nice arrows in NERDTree.
+scriptencoding utf-8
+let g:NERDTreeDirArrows=1
+
 " Always show a statusline.
 set laststatus=2
 
 " Use nice Powerline fonts for Airline.
 set encoding=utf-8
 let g:airline_powerline_fonts=1
+
+" Show Airline tabs.
+let g:airline#extensions#tabline#enabled=1
 
 " CtrlP should follow NERDTree's working directory.
 let g:NERDTreeChDirMode=2
