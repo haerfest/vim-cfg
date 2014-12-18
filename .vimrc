@@ -1,9 +1,10 @@
-" ------------------------------------------------------------------------------ 
+" ------------------------------------------------------------------------------
 "  Vundle.
-" ------------------------------------------------------------------------------ 
+" ------------------------------------------------------------------------------
 set nocompatible
 filetype off
 
+" Extend the runtime path (rtp).
 if has('win32')
   set rtp+=~/Documents/Shared/vim-cfg/.vim/bundle/Vundle.vim
 else
@@ -33,21 +34,17 @@ filetype plugin indent on
 "  Looks.
 " -----------------------------------------------------------------------------
 
-if has("gui_running")
+" Specify font and hide user interface elements.
+if has('gui_running')
 
-  " Use this font and size.
   if has("mac")
-    set guifont=Source\ Code\ Pro\ Light:h16
+    set guifont=DejaVu_Sans_Mono_for_Powerline:h13
   elseif has("gui_gtk")
-    set guifont=Source\ Code\ Pro\ Light\ 16
+    set guifont=Source\ Code\ Pro\ Light:h16
   elseif has("win32")
     set guifont=DejaVu_Sans_Mono_for_Powerline:h10:cANSI
   endif
 
-  " Use this color scheme.
-  colorscheme molokai
-
-  " Disable distracting user interface elements.
   set guioptions-=m    " no menu bar
   set guioptions-=T    " no tool bar
   set guioptions-=r    " no right scroll bar
@@ -56,7 +53,13 @@ if has("gui_running")
   set guioptions-=L    " also not for split windows
   set guioptions-=b    " no bottom scroll bar
   set guioptions-=e    " textual tabs
+endif
 
+" Use this color scheme.
+if has('gui_running')
+  colorscheme atom-dark
+else
+  colorscheme atom-dark-256
 endif
 
 " Show line numbers in the left column.
@@ -84,7 +87,7 @@ set expandtab
 set tabstop=2
 
 " Indent with this many spaces.
-set shiftwidth=2 
+set shiftwidth=2
 
 " Always continue the indentation of the previous line.
 set autoindent
@@ -142,8 +145,8 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-" Tabs show only the filename, not the path.
-set guitablabel=%t
+" Use F2 to toggle NERDTree.
+noremap <silent> <F2> :NERDTreeToggle<CR>
 
 " Don't start NERDTreeTabs right away.
 let g:nerdtree_tabs_open_on_gui_startup=0
@@ -162,7 +165,18 @@ let g:airline_powerline_fonts=1
 " Show Airline tabs.
 let g:airline#extensions#tabline#enabled=1
 
+" Tabs (native and airline) show only the filename, not the path.
+set guitablabel=%t
+let g:airline#extensions#tabline#fnamemod = ':t'
+
 " CtrlP should follow NERDTree's working directory.
 let g:NERDTreeChDirMode=2
 let g:ctrlp_working_path_mode='rw'
 
+" Easy bindings for various CtrlP modes.
+nmap <leader>b :CtrlPBuffer<cr>
+nmap <leader>m :CtrlPMixed<cr>
+nmap <leader>u :CtrlPMRU<cr>
+
+" Show me when the <leader> has been pressed.
+set showcmd
