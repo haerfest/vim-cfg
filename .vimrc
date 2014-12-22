@@ -16,7 +16,6 @@ Plugin 'gmarik/vundle'
 
 " Other bundles go here.
 Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 
@@ -40,9 +39,9 @@ if has('gui_running')
   if has("mac")
     set guifont=Sauce\ Code\ Powerline\ ExtraLight:h14
   elseif has("gui_gtk")
-    set guifont=Source\ Code\ Pro\ Light:h16
+    set guifont=Sauce\ Code\ Powerline\ Light:h16
   elseif has("win32")
-    set guifont=DejaVu_Sans_Mono_for_Powerline:h10:cANSI
+    set guifont=DejaVu_Sans_Mono_for_Powerline:h11
   endif
 
   set guioptions-=m    " no menu bar
@@ -180,3 +179,6 @@ nmap <leader>u :CtrlPMRU<cr>
 
 " Show me when the <leader> has been pressed.
 set showcmd
+
+" Indent Erlang code with 4 spaces.
+autocmd FileType erlang setlocal shiftwidth=4 tabstop=4
