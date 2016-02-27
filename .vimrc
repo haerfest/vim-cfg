@@ -37,7 +37,7 @@ filetype plugin indent on
 if has('gui_running')
 
   if has("mac")
-    set guifont=Sauce\ Code\ Powerline\ ExtraLight:h14
+    set guifont=Anonymous\ Pro\ for\ Powerline:h16
   elseif has("gui_gtk")
     set guifont=Sauce\ Code\ Powerline\ Light:h16
   elseif has("win32")
