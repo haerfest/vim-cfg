@@ -67,6 +67,9 @@ set nu
 " Highlight current line.
 set cursorline
 
+" Mark the 81th column.
+set colorcolumn=81
+
 " Enable syntax highlighting.
 syntax on
 
