@@ -17,7 +17,6 @@ Plugin 'gmarik/vundle'
 " Other bundles go here.
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
 
 " Color themes.
 Plugin 'gosukiwi/vim-atom-dark'
@@ -182,6 +181,9 @@ nmap <leader>u :CtrlPMRU<cr>
 
 " Show me when the <leader> has been pressed.
 set showcmd
+
+" Don't sound a bell upon pressing Escape etc.
+set visualbell
 
 " Indent Erlang code with 4 spaces.
 autocmd FileType erlang setlocal shiftwidth=4 tabstop=4
