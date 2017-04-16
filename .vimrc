@@ -24,6 +24,17 @@ Plugin 'jonathanfilip/vim-lucius'
 Plugin 'Pychimp/vim-luna'
 Plugin 'tomasr/molokai'
 
+" Clojure.
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround.git'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-salve'
+Plugin 'guns/vim-sexp'
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-clojure-highlight'
+Plugin 'kien/rainbow_parentheses.vim'
+
 " All of your Plugins must be added before the following line.
 call vundle#end()
 filetype plugin indent on
@@ -36,7 +47,7 @@ filetype plugin indent on
 if has('gui_running')
 
   if has("mac")
-    set guifont=Anonymous\ Pro\ for\ Powerline:h16
+    set guifont=Source\ Code\ Pro\ Light:h16
   elseif has("gui_gtk")
     set guifont=Sauce\ Code\ Powerline\ Light:h16
   elseif has("win32")
@@ -62,9 +73,6 @@ endif
 
 " Show line numbers in the left column.
 set nu
-
-" Highlight current line.
-set cursorline
 
 " Mark the 81th column.
 set colorcolumn=81
