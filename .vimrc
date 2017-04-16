@@ -35,6 +35,9 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
 Plugin 'kien/rainbow_parentheses.vim'
 
+" Common Lisp.
+Plugin 'kovisoft/slimv'
+
 " All of your Plugins must be added before the following line.
 call vundle#end()
 filetype plugin indent on
