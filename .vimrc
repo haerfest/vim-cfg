@@ -7,6 +7,9 @@ if has('win32') && has('gui')
   set guifont=Consolas:h20
 end
 
+" Use the host's clipboard.
+set clipboard=unnamed
+
 " Show status bar.
 set laststatus=2
 
