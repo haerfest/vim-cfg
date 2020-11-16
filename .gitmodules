@@ -4,3 +4,6 @@
 [submodule ".vim\\pack\\vendor\\start\\lightline"]
 	path = .vim\\pack\\vendor\\start\\lightline
 	url = https://github.com/itchyny/lightline.vim
+[submodule ".vim\\pack\\vendor\\start\\gitgutter"]
+	path = .vim\\pack\\vendor\\start\\gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
