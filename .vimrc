@@ -10,6 +10,10 @@ end
 " Use the host's clipboard.
 set clipboard=unnamed
 
+" Hide some UI elements.
+set guioptions-=m  " menu bar
+set guioptions-=T  " tool bar
+
 " Show status bar.
 set laststatus=2
 
