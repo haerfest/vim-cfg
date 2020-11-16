@@ -19,6 +19,9 @@ set laststatus=2
 " Show line numbers.
 set number
 
+" Don't wrap long lines.
+set nowrap
+
 " Enable syntax highlighting.
 syntax on
 
