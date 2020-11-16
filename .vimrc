@@ -7,11 +7,14 @@ if has('win32') && has('gui')
   set guifont=Consolas:h20
 end
 
-" Always show status bar.
+" Show status bar.
 set laststatus=2
 
-" Always show line numbers.
+" Show line numbers.
 set number
+
+" Enable syntax highlighting.
+syntax on
 
 " NERDTree.
 let g:NERDTreeNodeDelimiter = "\u00a0"
