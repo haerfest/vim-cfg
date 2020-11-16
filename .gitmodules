@@ -7,3 +7,6 @@
 [submodule ".vim\\pack\\vendor\\start\\gitgutter"]
 	path = .vim\\pack\\vendor\\start\\gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".vim\\pack\\vendor\\start\\fugitive"]
+	path = .vim\\pack\\vendor\\start\\fugitive
+	url = https://tpope.io/vim/fugitive.git

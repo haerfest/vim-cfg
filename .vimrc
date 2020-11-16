@@ -24,3 +24,15 @@ syntax on
 
 " NERDTree.
 let g:NERDTreeNodeDelimiter = "\u00a0"
+
+" Lightline.
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
